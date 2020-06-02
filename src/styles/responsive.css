@@ -1,0 +1,47 @@
+:root {
+    --title-color: #332254;
+    --primary-color: #34cb60;
+}
+
+@media(max-width: 900px){
+    #page-home {
+        background-position-x: 70vw;
+    }
+
+    #page-home .content{
+        align-items: center;
+        text-align: center;
+    }
+
+    #page-home .content header {
+        flex-direction: column;
+    }
+
+    #page-home .content header a {
+        position: absolute;
+        bottom: 50px;
+
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    #page-home main {
+        align-items: center;
+        
+    }
+
+
+
+}
+
+@media(min-width: 1650px){
+    #page-home {
+        background-position-x: 40vw;
+    }
+}
+
+@media(max-height: 760px){
+    #page-home {
+        background-position-y: 10vw;
+    }
+}
