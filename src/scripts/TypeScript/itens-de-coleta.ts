@@ -1,3 +1,7 @@
+/**
+ * Parte onde cria os itens
+ */
+
 const itens = [ 
     'Lâmpadas',
     'Baterias',
@@ -15,11 +19,11 @@ const url = [
    './assets/svgs/organicos.svg'
     ]
 
-let lista = document.querySelector('#itens-coleta')
+let itensToCollect = document.querySelector('#itens-coleta')
 
 for(let i = 0; i < url.length; i++){
-    lista.innerHTML += `                           
-     <li data-id="${i+1}">
+    itensToCollect.innerHTML += `                           
+     <li data-id="${i+1}" class="">
         <img src="${url[i]}" alt="${itens[i]}">
         <span>${itens[i]}</span>
     </li>
@@ -28,4 +32,31 @@ for(let i = 0; i < url.length; i++){
 
 console.log('itens termidos')
 
+/**
+ * Parte onde seleciona os itens
+ */ 
+
+const itensToCollectAll = document.querySelectorAll('#itens-coleta')
+let selectedItens = []
+
+const handleSelectedItem = (event) => {
+    let itemLi = event.target
+
+    //Adicionar ou remover uma classe no HTML
+    itemLi.classList.toggle('selected')
+
+
+    let dataId = event.target.dataset.id
+    console.log(dataId)
+
+    /**
+     * Verificar se existe algum item selecionado
+     * Se sim:
+     * Pegar os itens selecionados
+     */
+}
+
+for(let item of itensToCollectAll){
+    item.addEventListener('click', handleSelectedItem)
+}
 

@@ -14,8 +14,20 @@ var url = [
     './assets/svgs/papeis-papelao.svg',
     './assets/svgs/organicos.svg'
 ];
-var lista = document.querySelector('#itens-coleta');
+var itensToCollect = document.querySelector('#itens-coleta');
 for (var i = 0; i < url.length; i++) {
-    lista.innerHTML += "                           \n     <li data-id=\"" + (i + 1) + "\">\n        <img src=\"" + url[i] + "\" alt=\"" + itens[i] + "\">\n        <span>" + itens[i] + "</span>\n    </li>\n";
+    itensToCollect.innerHTML += "                           \n     <li data-id=\"" + (i + 1) + "\" class=\"\">\n        <img src=\"" + url[i] + "\" alt=\"" + itens[i] + "\">\n        <span>" + itens[i] + "</span>\n    </li>\n";
 }
 console.log('itens termidos');
+var itensToCollectAll = document.querySelectorAll('#itens-coleta');
+var handleSelectedItem = function (event) {
+    var itemLi = event.target;
+    //Adicionar ou remover uma classe no HTML
+    itemLi.classList.toggle('selected');
+    var dataId = event.target.dataset.id;
+    console.log(dataId);
+};
+for (var _i = 0, itensToCollectAll_1 = itensToCollectAll; _i < itensToCollectAll_1.length; _i++) {
+    var item = itensToCollectAll_1[_i];
+    item.addEventListener('click', handleSelectedItem);
+}

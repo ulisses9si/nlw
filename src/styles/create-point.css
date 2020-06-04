@@ -121,8 +121,57 @@ form button {
     outline: none;
 
     transition: background-color 500ms;
+
+    cursor: pointer;
 }
 
 form button:hover {
     background-color: #2fb86e;
+}
+
+.itens-grid ul#itens-coleta {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+}
+
+.itens-grid ul#itens-coleta li {
+    background-color: var(--back-color);
+    list-style: none;
+
+    border: 2px var(--back-color) solid;
+    border-radius: 10px;
+
+    height: 180px;
+    padding: 32px 24px 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.itens-grid ul#itens-coleta li.selected {
+    background-color: #e1faec;
+    border: 2px var(--primary-color) solid;
+}
+
+.itens-grid ul#itens-coleta li span {
+    flex: 1;
+    margin-top: 12px;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--title-color);
+}
+
+.itens-grid ul#itens-coleta li span,
+.itens-grid ul#itens-coleta li img {
+    pointer-events: none;
 }
