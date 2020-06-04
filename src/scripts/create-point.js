@@ -12,7 +12,10 @@ function populateUfs() {
 }
 function getCities(event) {
     var citySelect = document.querySelector('select[name=city]');
+    var stateInput = document.querySelector('input[name=state]');
     var url = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/" + event.target.value + "/municipios";
+    var indexOfSelectedState = event.target.selectedIndex;
+    stateInput.value = event.target.options[indexOfSelectedState].text;
     console.log(event.target.value);
     console.log(url);
     fetch(url).then(function (res) { return res.json(); }).then(function (cities) {
