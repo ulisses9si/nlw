@@ -37,6 +37,7 @@ console.log('itens termidos')
  */ 
 
 const itensToCollectAll = document.querySelectorAll('#itens-coleta')
+
 let selectedItens = []
 
 const handleSelectedItem = (event) => {
@@ -54,6 +55,37 @@ const handleSelectedItem = (event) => {
      * Se sim:
      * Pegar os itens selecionados
      */
+
+    let alredySelected = selectedItens.findIndex(item => item == dataId? true:false)
+
+    console.log(alredySelected)
+
+     
+    if(alredySelected > -1){
+        /**
+         * Se estiver selecionado:
+         * Tirar da seleção
+         */
+         let filteredItens = selectedItens.filter(item => item != dataId? false:true)
+         console.log(filteredItens)
+         selectedItens = filteredItens
+     }
+    else{
+         /**
+          * Se não estiver selecionado:
+          * Adicionar á seleção
+          */
+        
+        selectedItens.push(dataId)
+
+     }
+    
+    console.log(selectedItens)
+
+     
+
+
+    // Atualizar o campo escondido
 }
 
 for(let item of itensToCollectAll){
