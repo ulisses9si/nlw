@@ -1,8 +1,3 @@
-:root {
-    --title-color: #332254;
-    --primary-color: #34cb60;
-}
-
 @media(max-width: 900px){
     #page-home {
         background-position-x: 70vw;

@@ -30,7 +30,7 @@ for(let i = 0; i < url.length; i++){
 `
 }
 
-console.log('itens termidos')
+// console.log('itens termidos')
 
 /**
  * Parte onde seleciona os itens
@@ -39,6 +39,7 @@ console.log('itens termidos')
 const itensToCollectAll = document.querySelectorAll('#itens-coleta')
 
 let selectedItens = []
+const collectedItens = document.querySelector('input[name=itens]')
 
 const handleSelectedItem = (event) => {
     let itemLi = event.target
@@ -48,7 +49,7 @@ const handleSelectedItem = (event) => {
 
 
     let dataId = event.target.dataset.id
-    console.log(dataId)
+    // console.log(dataId)
 
     /**
      * Verificar se existe algum item selecionado
@@ -56,9 +57,9 @@ const handleSelectedItem = (event) => {
      * Pegar os itens selecionados
      */
 
-    let alredySelected = selectedItens.findIndex(item => item == dataId? true:false)
+    let alredySelected = selectedItens.findIndex(item => item == dataId)
 
-    console.log(alredySelected)
+    // console.log(alredySelected)
 
      
     if(alredySelected > -1){
@@ -66,8 +67,8 @@ const handleSelectedItem = (event) => {
          * Se estiver selecionado:
          * Tirar da seleção
          */
-         let filteredItens = selectedItens.filter(item => item != dataId? false:true)
-         console.log(filteredItens)
+         let filteredItens = selectedItens.filter(item => item != dataId)
+        //  console.log(filteredItens)
          selectedItens = filteredItens
      }
     else{
@@ -82,10 +83,14 @@ const handleSelectedItem = (event) => {
     
     console.log(selectedItens)
 
+    let filteredItens = selectedItens.filter(item => item != undefined)
+    console.log(filteredItens)
+    selectedItens = filteredItens
+
      
-
-
     // Atualizar o campo escondido
+    collectedItens.value = selectedItens
+    
 }
 
 for(let item of itensToCollectAll){

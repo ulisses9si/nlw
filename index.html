@@ -12,7 +12,8 @@
     <!-- Styles -->
     <link rel="stylesheet" href="src/styles/main.css">
     <link rel="stylesheet" href="src/styles/home.css">
-    <link rel="stylesheet" href="src/styles/responsive.css">
+    <link rel="stylesheet" href="/src/styles/modal.css">
+     <link rel="stylesheet" href="src/styles/responsive.css"> <!-- deixar sempre em último -->
 </head>
 <body>
 
@@ -21,7 +22,7 @@
         <div class="content">
             <header >
                 <img src="/assets/svgs/logo.svg" alt="Ecoleta" class="red">
-                <a href="http://google.com">
+                <a href="./create-point.html">
                     <span>  </span>
                     Cadastre seu ponto de coleta aqui
                 </a>
@@ -38,14 +39,38 @@
 
                     </span>
                     <strong>
-                    Pesquise aqui um ponto
+                    Pesquise aqui um ponto de coleta
                 </strong>
                 </a>
             </main>
         </div>
     </div>
 
-    <!-- <script src="./src/index.js"></script> -->
+    <div id="modal" class="hide">
+        <div class="content">
+            <div class="header">
+                <h1>
+                    Pontos de Coleta
+                </h1>
+                <a href="#"  id="close">
+                    Fechar
+                </a>
+            </div>
+            <div class="main">
+                <form action="">
+                    <label for="search">Cidade</label>
+                    <div class="search field">
+                        <input type="text" name="search" placeholder="Cidades">
+                        <button>
+                            <img src="./assets/svgs/search.svg" alt="buscar">
+                        </button>
+                    </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="./src/scripts/JavaScript/index.js"></script>
     
 </body>
 </html>

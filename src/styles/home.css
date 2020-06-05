@@ -81,7 +81,7 @@
 }
 
 #page-home main a:hover {
-    background-color: #2fb86a;
+    background-color: var(--hover-color);
     
 }
 

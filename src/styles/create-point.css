@@ -126,7 +126,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #2fb86e;
+    background-color: var(--hover-color);
 }
 
 .itens-grid ul#itens-coleta {
