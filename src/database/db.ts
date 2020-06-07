@@ -1,12 +1,16 @@
 // Importar a depêndencia do sqlite
-var sqlite = require('sqlite3').verbose();
+const sqlite = require('sqlite3').verbose()
+
 // Iniciar o objeto que fará operações no banco de dados
-var db = new sqlite.Database('./src/database/database.db');
-var num = Math.floor(Math.random() * 2000 + 1);
-module.exports = db;
+const db = new sqlite.Database('./src/database/database.db')
+let num = Math.floor(Math.random() * 2000 + 1)
+
+module.exports = db
+
 // Utilizar o objeto de banco de dados para as operações
-// db.serialize(function () {
+db.serialize(() => {
     // Com comandos SQL
+
     // // 1 Criar uma tabela 
     // db.run(`
     //     CREATE TABLE IF NOT EXISTS places (
@@ -34,6 +38,7 @@ module.exports = db;
     // VALUES (?,?,?,?,?,?,?);
     // `
     // num = Math.floor(Math.random() * 2000 + 1)
+
     // const value = [
     //     "Colectoria", 
     //     `https://picsum.photos/id/${num}/200/300`,
@@ -43,36 +48,57 @@ module.exports = db;
     //     "Rio do Sul",
     //     "Papéis e Papelão"
     // ]
+
     // function afterInsertData (err) {
     //     if(err){
     //         return console.log("Erro: \n${err}")
     //     }
+            
     //     console.log("Cadastrado com sucesso")
     //     console.log(this)
     // }
+
     // db.run(query, value, afterInsertData)
+
     // // 3 Consultar os dados na tabela
+
     // db.all(`
     //     SELECT * FROM places
     // `, function (err, rows) {
     //     if(err){
     //         return console.log("Erro: \n${err}")
     //     }
+
     //     console.log(`Aqui estão os seus registros: `)
     //     console.log(rows)
     // })
+
+
+
     // 4 Deletar um dado na tabela
-//     db.run('DELETE FROM places WHERE id = ?', [9], function (err) {
-//         if (err) {
-//             return console.log("Erro: \n${err}");
-//         }
-//         console.log('Dados deletados com sucesso');
-//     });
-//     db.all("\n    SELECT * FROM places\n", function (err, rows) {
-//         if (err) {
-//             return console.log("Erro: \n${err}");
-//         }
-//         console.log("Aqui est\u00E3o os seus registros: ");
-//         console.log(rows);
-//     });
-// });
+    db.run('DELETE FROM places WHERE id >= ?', [20], function (err){
+        if(err){
+            return console.log("Erro: \n${err}")
+        }
+
+        console.log('Dados deletados com sucesso')
+            
+    })
+
+    db.all(`
+    SELECT * FROM places
+`, function (err, rows) {
+    if(err){
+        return console.log("Erro: \n${err}")
+    }
+
+    console.log(`Aqui estão os seus registros: `)
+    console.log(rows)
+})
+
+
+
+
+})
+
+

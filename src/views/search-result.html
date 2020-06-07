@@ -16,31 +16,31 @@
     {% include "partials/page-header.html" %}
         
     <main>
+       
         <div id="ponto-cards">
             <h3>
-                <strong></strong> Encontrados: 
+                <strong>{{ total }} pontos</strong> encontrados: 
             </h3>
+
             <div class="cards">
-                <div class="card">
-                    <img src="https://picsum.photos/id/502/200" alt="Colectoria">
-                    <h2>Colectoria</h2>
-                    <h4>Resíduos Eletrônicos, Lâmpadas</h4>
-                    <p>
-                        Rio do Sul, Santa Catarina <br>
-                        Guilherme Gembala, Jardim América<br>
-                        N° 260<br>
-                    </p>
-                </div>
-                <div class="card">
-                    <img src="https://picsum.photos/id/203/200" alt="Colectoria">
-                    <h2>Papersider</h2>
-                    <h4>Papéis e Papelão</h4>
-                    <p>
-                        Rio do Sul, Santa Catarina <br>
-                        Guilherme Gembala, Jardim América<br>
-                        N° 260<br>
-                    </p>
-                </div>
+
+            {% if (total > 0) %}
+                {% for place in places %}
+                    <div class="card">
+                        <img src="{{ place.image }}" alt="Colectoria">
+                        <h2>{{ place.name }}</h2>
+                        <h4>{{place.items}}</h4>
+                        <p>
+                            {{ place.city }}, {{ place.state }} <br>
+                            {{ place.addres }}<br>
+                            {{ place.addres2 }}<br>
+                        </p>
+                    </div>
+                {% endfor %}
+                {% else %}
+                    <h4><strong>Nenhum</strong> ponto encontrados :(</h4>
+            {% endif %}
+
             </div>  
         </div>
     </main>        
