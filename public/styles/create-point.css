@@ -24,7 +24,7 @@
 }
 
 #page-create-point header a span {
-    background-image: url('../../assets/svgs/arrow-left.svg');
+    background-image: url('/assets/arrow-left.svg');
 
     width: 20px;
     height: 24px;
@@ -55,12 +55,23 @@ form fieldset {
     border: 0;
 }
 
-form fieldset legend {
-    margin-bottom: 40px;
+form legend {
+    margin: 40px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
 }
 
-form fieldset legend h2 {
+form legend h2 {
     font-size: 24px;
+}
+
+form legend span {
+    font-size: 14px;
+    color: var(--title-color);
 }
 
 form .field {

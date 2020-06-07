@@ -1,100 +1,93 @@
-<!DOCTYPE html>
-<html lang="pt_br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar ponto de coleta</title>
-    <!-- Adiciona um incone do lado do título -->
-    <link rel="icon" type="imagem/svg" href="./assets/svgs/home-background.svg"/>
-    <!-- Fonts  -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Roboto:ital,wght@0,100;0,400;0,700;1,300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap" rel="stylesheet">
-    <!-- Styles -->    
-    <link rel="stylesheet" href="src/styles/main.css">
-    <link rel="stylesheet" href="src/styles/create-point.css">
-    <link rel="stylesheet" href="src/styles/responsive.css">
-    
-</head>
-<body>
+{% extends 'layout.html' %}
 
-    <div id="page-create-point">  
-        <header >
-            <img src="/assets/svgs/logo.svg" alt="Ecoleta">
-            <a href="/">
-                <span>  </span>
-                Voltar para home
-            </a>
-        </header>
-        <main>
-            <form action="./search-result.html">
-                <h1>
-                    Cadastro do Ponto de Coleta
-                </h1>
+{% set pageId = 'page-create-point' %}
+{% set title = 'Criar ponto de coleta' %}
 
-                <fieldset>
-                    <!-- Para agrupar itens relacinados -->
-                    <legend>
-                        <h2>Dados da Entidade</h2>
-                    </legend>
+{% block title %}
+    <title>{{title}}</title>
+{% endblock title %}
 
+{% block styles %}
+
+    <link rel="stylesheet" href="/styles/create-point.css">
+    <link rel="stylesheet" href="/styles/responsive.css">
+
+{% endblock styles %}
+
+{% block content %}
+    {% include "partials/page-header.html" %}
+    <main>
+        <form action="./search-result.html">
+            <h1>
+                Cadastro do Ponto de Coleta
+            </h1>
+
+            <fieldset>
+                <!-- Para agrupar itens relacinados -->
+                <legend>
+                    <h2>Dados da Entidade</h2>
+                </legend>
+
+                <div class="field-group">
                     <div class="field">
                         <label for="name">Nome da Entidade</label>
                         <input type="text" name="name">
                     </div>
-
-                    <div class="field-group">
-                        <div class="field">
-                            <label for="addres">Endereço</label>
-                            <input type="text" name="addres">
-                        </div>
-                        <div class="field">
-                            <label for="addres2">Número e/ou Complemento</label>
-                            <input type="text" name="addres2" placeholder="Número/Complemento">
-                        </div>
+                    <div class="field">
+                        <label for="image">Foto da Organização</label>
+                        <input type="url" name="image" placeholder="link da foto">
                     </div>
+                </div>
 
-                    <div class="field-group">
-                        <div class="field">
-                            <label for="UF">Estado</label>
-                            <select name="UF" id="UF">
-                                <option value="0" >Selecione o Estado</option>
-                            </select>
-                            
-                        </div>
-                        <div class="field">
-                            <label for="city">Cidade</label>
-                            <select name="city" disabled id="Cities">
-                                <option value="">Selecione a Cidade</option>
-                            </select>
-                            <input type="hidden" name="state">
-                        </div>
+                <div class="field-group">
+                    <div class="field">
+                        <label for="addres">Endereço</label>
+                        <input type="text" name="addres">
                     </div>
-                </fieldset>
-                </fieldset>
-                    <legend>
-                        <h2>Itens de Coleta</h2>
-                    </legend>
-                    <div class="itens-grid">
-                        <ul id='itens-coleta'>
-
-                        </ul>
+                    <div class="field">
+                        <label for="addres2">Número e/ou Complemento</label>
+                        <input type="text" name="addres2">
                     </div>
+                </div>
 
-                    <input type="hidden" name="itens">
-                </fieldset> 
-            
+                <div class="field-group">
+                    <div class="field">
+                        <label for="UF">Estado</label>
+                        <select name="UF" id="UF">
+                            <option value="0">Selecione o Estado</option>
+                        </select>
 
-                <button type="submit">
-                    Cadastrar ponto de coleta
-                </button>
+                    </div>
+                    <div class="field">
+                        <label for="city">Cidade</label>
+                        <select name="city" disabled="disabled" id="Cities">
+                            <option value="">Selecione a Cidade</option>
+                        </select>
+                        <input type="hidden" name="state">
+                    </div>
+                </div>
+            </fieldset>
+            </fieldset>
+            <legend>
+                <h2>Itens de Coleta</h2>
+                <span>Selecione 1 ou mais itens abaixo</span>
+            </legend>
+            <div class="itens-grid">
+                <ul id='itens-coleta'></ul>
+            </div>
 
-            </form>
-        </main>
-        
-    </div>
+            <input type="hidden" name="itens">
+        </fieldset>
 
-    <script src="./src/scripts/JavaScript/itens-de-coleta.js"></script>
-    <script src="./src/scripts/JavaScript/create-point.js"></script>
-    
-</body>
-</html>
+        <button type="submit">
+            Cadastrar ponto de coleta
+        </button>
+
+    </form>
+</main>
+{% endblock content %}
+
+{% block scripts %}
+<script src="/scripts/itens-de-coleta.js"></script>
+<script src="/scripts/create-point.js"></script>
+{% endblock scripts %}

@@ -10,12 +10,12 @@ var itens = [
     'Orgânicos'
 ];
 var url = [
-    "./assets/svgs/lampadas.svg",
-    './assets/svgs/baterias.svg',
-    "./assets/svgs/eletronicos.svg",
-    './assets/svgs/oleo.svg',
-    './assets/svgs/papeis-papelao.svg',
-    './assets/svgs/organicos.svg'
+    "./assets/lampadas.svg",
+    './assets/baterias.svg',
+    "./assets/eletronicos.svg",
+    './assets/oleo.svg',
+    './assets/papeis-papelao.svg',
+    './assets/organicos.svg'
 ];
 var itensToCollect = document.querySelector('#itens-coleta');
 for (var i = 0; i < url.length; i++) {
