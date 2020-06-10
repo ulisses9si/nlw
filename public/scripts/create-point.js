@@ -21,7 +21,7 @@ function getCities(event) {
     fetch(url).then(function (res) { return res.json(); }).then(function (cities) {
         for (var _i = 0, cities_1 = cities; _i < cities_1.length; _i++) {
             var city = cities_1[_i];
-            citySelect.innerHTML += "<option value=\"" + city.id + "\">" + city.nome + "</option>";
+            citySelect.innerHTML += "<option value=\"" + city.nome + "\">" + city.nome + "</option>";
         }
     });
     citySelect.disabled = false;

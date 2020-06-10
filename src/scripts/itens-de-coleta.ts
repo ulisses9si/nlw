@@ -2,35 +2,35 @@
  * Parte onde cria os itens
  */
 
-// const itens = [ 
-//     'Lâmpadas',
-//     'Baterias',
-//     'Eletrônicos',
-//     'Óleo de Cozinha',
-//     'Papéis e/ou Papelão',
-//     'Orgânicos'
-// ]
-// const url = [
-//     "./assets/svgs/lampadas.svg", 
-//     './assets/svgs/baterias.svg', 
-//     "./assets/svgs/eletronicos.svg",
-//     './assets/svgs/oleo.svg',
-//     './assets/svgs/papeis-papelao.svg',
-//    './assets/svgs/organicos.svg'
-//     ]
+const itens = [ 
+    'Lâmpadas',
+    'Baterias',
+    'Eletrônicos',
+    'Óleo de Cozinha',
+    'Papéis e/ou Papelão',
+    'Orgânicos'
+]
+const url = [
+    "./assets/lampadas.svg", 
+    './assets/baterias.svg', 
+    "./assets/eletronicos.svg",
+    './assets/oleo.svg',
+    './assets/papeis-papelao.svg',
+   './assets/organicos.svg'
+    ]
 
-// let itensToCollect = document.querySelector('#itens-coleta')
+let itensToCollect = document.querySelector('#itens-coleta')
 
-// for(let i = 0; i < url.length; i++){
-//     itensToCollect.innerHTML += `                           
-//      <li data-id="${i+1}" class="">
-//         <img src="${url[i]}" alt="${itens[i]}">
-//         <span>${itens[i]}</span>
-//     </li>
-// `
-// }
+for(let i = 0; i < url.length; i++){
+    itensToCollect.innerHTML += `                           
+     <li data-id="${itens[i]}" class="">
+        <img src="${url[i]}" alt="${itens[i]}">
+        <span>${itens[i]}</span>
+    </li>
+`
+}
 
-// console.log('itens termidos')
+console.log('itens terminados')
 
 /**
  * Parte onde seleciona os itens
@@ -46,10 +46,10 @@ const handleSelectedItem = (event) => {
 
     //Adicionar ou remover uma classe no HTML
     itemLi.classList.toggle('selected')
-
-
+    
     let dataId = event.target.dataset.id
-    // console.log(dataId)
+
+    console.log("ITEM ID: ", dataId)
 
     /**
      * Verificar se existe algum item selecionado
@@ -87,6 +87,7 @@ const handleSelectedItem = (event) => {
     console.log(filteredItens)
     selectedItens = filteredItens
 
+    console.log(`SELECTED ITENS: ${selectedItens}`)
      
     // Atualizar o campo escondido
     collectedItens.value = selectedItens

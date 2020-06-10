@@ -99,3 +99,18 @@
     background-color: var(--hover-color);
     cursor: pointer;
 }
+
+
+/* Para a página point-created */
+#modal.point .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#modal.point .content h1 {
+    margin: 25px;
+
+    color: white;
+}
